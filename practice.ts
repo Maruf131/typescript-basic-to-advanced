@@ -1,15 +1,11 @@
-class Person {
-  constructor(
-    public name: string,
-    public age: number,
-  ) {
-    ((this.name = name), (this.age = age));
-  }
+type AlphaNumeric = number | string;
 
-  void() {
-    console.log(`My name is ${this.name}. i'm ${this.age} years old`);
+const add = (num1: AlphaNumeric, num2: AlphaNumeric) => {
+  if (typeof num1 === "number" && typeof num2 === "number") {
+    return num1 + num2;
+  } else {
+    return num1.toString() + num2.toString();
   }
-}
+};
 
-const result = new Person("maruf", 21);
-result.void();
+console.log(add(2, "2"));
