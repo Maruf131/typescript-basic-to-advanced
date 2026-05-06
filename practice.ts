@@ -1,11 +1,39 @@
-type AlphaNumeric = number | string;
-
-const add = (num1: AlphaNumeric, num2: AlphaNumeric) => {
-  if (typeof num1 === "number" && typeof num2 === "number") {
-    return num1 + num2;
-  } else {
-    return num1.toString() + num2.toString();
+class Shape {
+  getArea() {
+    return 0;
   }
+}
+
+class Circle extends Shape {
+  radius: number;
+  constructor(radius: number) {
+    super();
+    this.radius = radius;
+  }
+  getArea(): number {
+    return Math.PI * this.radius * this.radius;
+  }
+}
+
+class Rectangle extends Shape {
+  height: number;
+  weight: number;
+  constructor(height: number, weight: number) {
+    super();
+    this.height = height;
+    this.weight = weight;
+  }
+  getArea(): number {
+    return this.height * this.weight;
+  }
+}
+
+const area = (value: Shape) => {
+  console.log(value.getArea());
 };
 
-console.log(add(2, "2"));
+const shaple1 = new Shape();
+const shaple2 = new Circle(20);
+const shaple3 = new Rectangle(10, 20);
+
+area(shaple3);
